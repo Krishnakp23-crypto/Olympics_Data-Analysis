@@ -1,0 +1,270 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\olympic.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>olympic.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="ID" size="254" source="File: E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\olympic.csv" type="V_String" />
+            <Field name="Name" size="254" source="File: E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\olympic.csv" type="V_String" />
+            <Field name="Gender" size="254" source="File: E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\olympic.csv" type="V_String" />
+            <Field name="Age" size="254" source="File: E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\olympic.csv" type="V_String" />
+            <Field name="Height (cm)" size="254" source="File: E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\olympic.csv" type="V_String" />
+            <Field name="Weight (kg)" size="254" source="File: E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\olympic.csv" type="V_String" />
+            <Field name="Team" size="254" source="File: E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\olympic.csv" type="V_String" />
+            <Field name="NOC" size="254" source="File: E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\olympic.csv" type="V_String" />
+            <Field name="Games" size="254" source="File: E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\olympic.csv" type="V_String" />
+            <Field name="Year" size="254" source="File: E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\olympic.csv" type="V_String" />
+            <Field name="Season" size="254" source="File: E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\olympic.csv" type="V_String" />
+            <Field name="City" size="254" source="File: E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\olympic.csv" type="V_String" />
+            <Field name="Sport" size="254" source="File: E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\olympic.csv" type="V_String" />
+            <Field name="Event" size="254" source="File: E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\olympic.csv" type="V_String" />
+            <Field name="Medal" size="254" source="File: E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\olympic.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="594" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="25">E:\EY training\Projects_ETL&amp;BI\Olympics Sports Analysis\DataSet\Olympic Transformed.xlsx|||Sheet1</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <PreserveFormat>False</PreserveFormat>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Olympic Transformed.xlsx
+Query=Sheet1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="174" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="Medal" />
+            <Field name="ID" selected="False" />
+            <Field name="Name" selected="False" />
+            <Field name="Gender" selected="False" />
+            <Field name="Age" selected="False" />
+            <Field name="Height (cm)" selected="False" />
+            <Field name="Weight (kg)" selected="False" />
+            <Field name="Team" selected="False" />
+            <Field name="NOC" selected="False" />
+            <Field name="Games" selected="False" />
+            <Field name="Year" selected="False" />
+            <Field name="Season" selected="False" />
+            <Field name="City" selected="False" />
+            <Field name="Sport" selected="False" />
+            <Field name="Event" selected="False" />
+            <Field name="*Unknown" selected="False" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>IF [Medal] = "NA" THEN "Lost" ELSE [Medal] ENDIF</Expression>
+          <ChangeFieldType value="True" />
+          <OutputFieldType type="V_String" size="254" scale="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF [Medal] = "NA" THEN "Lost" ELSE [Medal] ENDIF</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="282" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Age" selected="True" type="Int32" size="4" />
+            <SelectField field="Height (cm)" selected="True" type="Int32" size="4" />
+            <SelectField field="Weight (kg)" selected="True" type="Int32" size="4" />
+            <SelectField field="NOC" selected="True" rename="Country Code" />
+            <SelectField field="Year" selected="True" rename="Year_Of_Game" type="Int32" size="4" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings>
+        <Position x="390" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="listbox Select Incoming Fields">"Age","Height (cm)","Weight (kg)"</Value>
+          <Value name="radio Null Value">True</Value>
+          <Value name="radio User Specified Replace From Value">False</Value>
+          <Value name="updown User Replace Value">0.00000</Value>
+          <Value name="radio Mean">True</Value>
+          <Value name="radio Median">False</Value>
+          <Value name="radio Mode">False</Value>
+          <Value name="radio User Specified Replace With Value">False</Value>
+          <Value name="updown User Replace With Value">0.00000</Value>
+          <Value name="checkbox Impute Indicator">False</Value>
+          <Value name="checkbox Imputed Values Separate Field">False</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="ID" size="254" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Indicator)$', 0) &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="V_String" />
+            <Field name="Name" size="254" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Indicator)$', 0) &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="V_String" />
+            <Field name="Gender" size="254" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Indicator)$', 0) &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="V_String" />
+            <Field name="Age" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Indicator)$', 0) &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="Int32" />
+            <Field name="Height (cm)" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Indicator)$', 0) &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="Int32" />
+            <Field name="Weight (kg)" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Indicator)$', 0) &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="Int32" />
+            <Field name="Team" size="254" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Indicator)$', 0) &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="V_String" />
+            <Field name="Country Code" size="254" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Indicator)$', 0) &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="V_String" />
+            <Field name="Games" size="254" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Indicator)$', 0) &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="V_String" />
+            <Field name="Year_Of_Game" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Indicator)$', 0) &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="Int32" />
+            <Field name="Season" size="254" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Indicator)$', 0) &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="V_String" />
+            <Field name="City" size="254" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Indicator)$', 0) &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="V_String" />
+            <Field name="Sport" size="254" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Indicator)$', 0) &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="V_String" />
+            <Field name="Event" size="254" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Indicator)$', 0) &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="V_String" />
+            <Field name="Medal" size="254" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Indicator)$', 0) &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="Imputation_v3.yxmc" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="474" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="1033">
+            <Field field="ID" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>ID - Ascending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Olympics</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="3ceba872-e7a4-4f09-9d87-82d74d37b508" />
+      <Telemetry>
+        <PreviousWorkflowId value="a9dcf9fb-13a9-4d6d-8bfa-8f2201913e54" />
+        <OriginWorkflowId value="a9dcf9fb-13a9-4d6d-8bfa-8f2201913e54" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
